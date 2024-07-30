@@ -17,6 +17,8 @@ class LowPassFilter:
         else:
             # filter
             filtered_value = self.alpha * current_value + (1 - self.alpha) * self.previous_value
+            #dead zone
+            #filtered_value[abs(filtered_value) < 0.005] = 0
 
         # update
         self.previous_value = filtered_value
